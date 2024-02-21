@@ -1,12 +1,20 @@
 class Todo {
-    id: string;
-    text: string;
+	id: string;
+	text: string;
 
-    constructor(text: string) {
-        this.id = new Date().toDateString();
-        this.text = text
-    }
-
+	constructor(text: string) {
+		this.id = Math.random().toString();
+		this.text = text;
+	}
 }
 
-export default Todo
+// type Todo = {
+// 	id: string;
+// 	text: string;
+// };
+// interface Todo {
+// 	id: string;
+// 	text: string;
+// };
+
+export default Todo;
