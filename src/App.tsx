@@ -9,14 +9,22 @@ function App() {
 
 	const [items, setItems] = useState<Todo[]>([]);
 
-	const addToDoHandler = (item: string) => {
+	const addTodoHandler = (item: string) => {
 		// setItems([...items, new Todo(item)]);
-		setItems(prevItems=> [...prevItems, new Todo(item)]);
+		setItems((prevItems) => [...prevItems, new Todo(item)]);
+	};
+
+	const deleteTodoHandler = (id: string) => {
+		setItems((prevItems) => {
+			const newItems = prevItems.filter((item) => item.id !== id);
+
+			return newItems;
+		});
 	};
 	return (
 		<div>
-			<NewTodo onAddToDo={addToDoHandler} />
-			<Todos items={items} />
+			<NewTodo onAddTodo={addTodoHandler} />
+			<Todos onDelete={deleteTodoHandler} items={items} />
 		</div>
 	);
 }

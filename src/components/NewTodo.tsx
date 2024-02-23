@@ -2,7 +2,7 @@ import React, { FormEvent, useRef } from "react";
 
 import classes from '../modules/NewTodo.module.css'
 
-const NewTodo: React.FC<{onAddToDo: (text:string)=> void}> = (props) => {
+const NewTodo: React.FC<{onAddTodo: (text:string)=> void}> = (props) => {
 	const todoTextInputRef = useRef<HTMLInputElement>(null);
 
 	const submitHandler = (e: FormEvent) => {
@@ -14,7 +14,7 @@ const NewTodo: React.FC<{onAddToDo: (text:string)=> void}> = (props) => {
             return
         }
 
-        props.onAddToDo(enteredValue)
+        props.onAddTodo(enteredValue)
 
 	};
 	return (
