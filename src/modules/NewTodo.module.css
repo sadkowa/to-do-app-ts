@@ -1,5 +1,6 @@
 .form {
-  width: 40rem;
+  width: 80%;
+  max-width: 500px;
   margin: 2rem auto;
   
 }
