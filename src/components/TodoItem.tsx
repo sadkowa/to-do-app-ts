@@ -3,7 +3,7 @@ import Todo from "../models/todo";
 
 import classes from '../modules/TodoItem.module.css'
 
-const TodoItem: React.FC<{ item: Todo, onDelete:(id:string)=>void }> = ({ item, onDelete }) => {
+const TodoItem: React.FC<{ item: Todo; onDelete:(id:string)=>void }> = ({ item, onDelete }) => {
 	return <li 
 	className={classes.item}
 	onClick={()=> onDelete(item.id)}
