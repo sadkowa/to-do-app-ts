@@ -1,17 +1,19 @@
-import React from "react";
-import Todo from "../models/todo";
+import React, {useContext} from "react";
 import TodoItem from "./TodoItem";
+
+import { TodosContext } from "../store/todos-context";
 
 import classes from '../modules/Todos.module.css'
 
-const Todos: React.FC<{
-	items: Todo[];
-	onDelete: (id: string) => void;
-}> = ({ items, onDelete }) => {
+const Todos: React.FC= () => {
+
+	const {items, removeTodo} = useContext(TodosContext)
+	console.log(items)
+
 	return (
 		<ul className={classes.todos}>
 			{items.map((item) => (
-				<TodoItem onDelete={onDelete} key={item.id} item={item} />
+				<TodoItem onDelete={removeTodo} key={item.id} item={item} />
 			))}
 		</ul>
 	);
