@@ -4,10 +4,15 @@ import Todo from "../models/todo";
 import classes from '../modules/TodoItem.module.css'
 
 const TodoItem: React.FC<{ item: Todo; onDelete:(id:string)=>void }> = ({ item, onDelete }) => {
-	return <li 
-	className={classes.item}
-	onClick={()=> onDelete(item.id)}
-	>{item.text}</li>;
+	return (
+		<div className={classes.box}>
+			<li className={classes.item} >
+				{item.text}
+			</li>
+			<button className={classes.button} onClick={() => onDelete(item.id)}>X</button>
+		</div>
+	);
+
 };
 
 export default TodoItem;
